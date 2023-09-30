@@ -1,39 +1,36 @@
-package mpp.msqueue
+import java.util.concurrent.atomic.*
 
-import kotlinx.atomicfu.AtomicRef
-import kotlinx.atomicfu.atomic
-
-class MSQueue<E> {
-    private val head: AtomicRef<Node<E>>
-    private val tail: AtomicRef<Node<E>>
+class MSQueue<E> : Queue<E> {
+    private val head: AtomicReference<Node<E>>
+    private val tail: AtomicReference<Node<E>>
 
     init {
         val dummy = Node<E>(null)
-        head = atomic(dummy)
-        tail = atomic(dummy)
+        head = AtomicReference(dummy)
+        tail = AtomicReference(dummy)
     }
 
-    /**
-     * Adds the specified element [x] to the queue.
-     */
-    fun enqueue(x: E) {
+    override fun enqueue(element: E) {
         TODO("implement me")
     }
 
-    /**
-     * Retrieves the first element from the queue
-     * and returns it; returns `null` if the queue
-     * is empty.
-     */
-    fun dequeue(): E? {
+    override fun dequeue(): E? {
         TODO("implement me")
     }
 
-    fun isEmpty(): Boolean {
-        TODO("implement me")
+    // FOR TEST PURPOSE, DO NOT CHANGE IT.
+    override fun validate() {
+        check(tail.get().next.get() == null) {
+            "At the end of the execution, `tail.next` must be `null`"
+        }
+        check(head.get().element == null) {
+            "At the end of the execution, the dummy node shouldn't store an element"
+        }
     }
-}
 
-private class Node<E>(val x: E?) {
-    val next = atomic<Node<E>?>(null)
+    private class Node<E>(
+        var element: E?
+    ) {
+        val next = AtomicReference<Node<E>?>(null)
+    }
 }
