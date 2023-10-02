@@ -1,5 +1,8 @@
 import java.util.concurrent.atomic.*
 
+/**
+ * @author TODO: Last Name, First Name
+ */
 class MSQueue<E> : Queue<E> {
     private val head: AtomicReference<Node<E>>
     private val tail: AtomicReference<Node<E>>
