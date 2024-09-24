@@ -1,6 +1,6 @@
 # Michael-Scott Queue
 
-Implement the Michael-Scott queue algorithm in `src/MSQueue`. 
+Implement the Michael-Scott queue algorithm in [`src/MSQueue.kt`](src/MSQueue.kt). 
 You may be interested in [the original paper](http://www.cs.rochester.edu/~scott/papers/1996_PODC_queues.pdf).
 
 **Write your first and last name in the header of the file after the `@author` tag.**
