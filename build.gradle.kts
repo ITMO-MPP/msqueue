@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.9.10"
+    kotlin("jvm") version "2.0.20"
     java
 }
 
@@ -24,12 +24,12 @@ repositories {
 dependencies {
     implementation(kotlin("reflect"))
     testImplementation(kotlin("test-junit"))
-    testImplementation("org.jetbrains.kotlinx:lincheck:2.23")
+    testImplementation("org.jetbrains.kotlinx:lincheck:2.34")
 }
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of(21))
     }
 }
 
